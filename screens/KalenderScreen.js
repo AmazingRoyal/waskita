@@ -3,7 +3,7 @@ import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, F
 
 import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function CalendarScreen({navigation}) {
+export default function KalenderScreen({navigation}) {
     return (
         <SafeAreaView style={styles.base}>
             <ScrollView>
@@ -11,12 +11,12 @@ export default function CalendarScreen({navigation}) {
                 {/* Periode */}
                 <View style={styles.periode}>
                     <View style={styles.box}>
-                        <Text style={styles.periode_text}>Periode 2</Text>
+                        <Text style={styles.periode_text}>Periode 3</Text>
                     </View>
                     <Text style={styles.sub_headline}>Waktu Shift</Text>
-                    <Text style={styles.detail}>14.00 - 21.00</Text>
+                    <Text style={styles.detail}>21.00 - 05.00</Text>
                     <Text style={styles.sub_headline}>Tanggal</Text>
-                    <Text style={styles.detail}>23 Desember 2021</Text>
+                    <Text style={styles.detail}>8 Desember 2021</Text>
                 </View>
         
                 <View style={styles.actionContainer}>

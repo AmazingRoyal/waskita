@@ -8,23 +8,21 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import HomeScreen from './screens/HomeScreen';
-import CalendarScreen from './screens/CalendarScreen';
+import KalenderScreen from './screens/KalenderScreen';
 import PelaporanScreen from './screens/PelaporanScreen';
 import ProfilScreen from './screens/ProfilScreen';
 import PermohonanScreen from './screens/PermohonanScreen';
 
-const CalendarStack = createNativeStackNavigator();
+const KalenderStack = createNativeStackNavigator();
+const PelaporanStack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function CalendarStackScreen() {
+function KalenderStackScreen() {
     return (
-        <CalendarStack.Navigator
-            // headerMode="screen"
-            
-        >
-            <CalendarStack.Screen 
-                name="Calendar" 
-                component={CalendarScreen} 
+        <KalenderStack.Navigator>
+            <KalenderStack.Screen 
+                name="Kalender" 
+                component={KalenderScreen} 
                 options={{
                     headerStyle: {
                         backgroundColor: '#1F487E',
@@ -36,7 +34,7 @@ function CalendarStackScreen() {
                     
                 }}
             />
-            <CalendarStack.Screen 
+            <KalenderStack.Screen 
                 name="Permohonan" 
                 component={PermohonanScreen} 
                 options={{
@@ -50,7 +48,28 @@ function CalendarStackScreen() {
                     
                 }}
             />
-        </CalendarStack.Navigator>
+        </KalenderStack.Navigator>
+    )
+}
+
+function PelaporanStackScreen() {
+    return (
+        <PelaporanStack.Navigator>
+            <PelaporanStack.Screen 
+                name="Pelaporan" 
+                component={PelaporanScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+        </PelaporanStack.Navigator>
     )
 }
 
@@ -78,7 +97,7 @@ export default function App() {
 
                 <Tab.Screen 
                     name="Pelaporan" 
-                    component={PelaporanScreen} 
+                    component={PelaporanStackScreen} 
                     options={{
                         tabBarLabel: "Pelaporan",
                         tabBarIcon: ({color}) => ( 
@@ -88,10 +107,10 @@ export default function App() {
                 />
 
                 <Tab.Screen 
-                    name="Calendar" 
-                    component={CalendarStackScreen} 
+                    name="Kalender" 
+                    component={KalenderStackScreen} 
                     options={{
-                        tabBarLabel: "Calendar",
+                        tabBarLabel: "Kalender",
                         tabBarIcon: ({color}) => ( 
                             <FontAwesome5 name="calendar-check" size={24} color={color} />
                         )

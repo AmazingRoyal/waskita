@@ -28,32 +28,63 @@ const DATA = [
     },
 ];
 
-const Item = ({ item }) => (
-    <View style={styles.item}>
-        <View style={styles.item_img_container}>
-            <Image style={styles.item_img} source={{uri: item.gambar}} />
-        </View>
-        <View style={styles.item_desc}>
-            <Text style={styles.item_headline}>{item.tipe}</Text>
-            <Text style={styles.item_sub_headline}>{item.objek}</Text>
-            <Text style={styles.item_sub_headline}>{item.lokasi}</Text>
-        </View>
-    </View>
-);
-
-// const screenWidth = Dimensions.get("window").width;
+const DATA_SHIFT = [
+    {
+        id: '1',
+        tanggal: '1',
+        periode: '1',
+    },
+    {
+        id: '2',
+        tanggal: '2',
+        periode: '2',
+    },
+    {
+        id: '3',
+        tanggal: '3',
+        periode: '3',
+    },
+    {
+        id: '4',
+        tanggal: '4',
+        periode: 'Off',
+    },
+    {
+        id: '5',
+        tanggal: '5',
+        periode: 'Off',
+    },
+    {
+        id: '6',
+        tanggal: '6',
+        periode: '1',
+    },
+    {
+        id: '7',
+        tanggal: '7',
+        periode: '2',
+    },
+    {
+        id: '8',
+        tanggal: '8',
+        periode: '3',
+    },
+    {
+        id: '9',
+        tanggal: '9',
+        periode: 'Off',
+    },
+    {
+        id: '10',
+        tanggal: '10',
+        periode: 'Off',
+    },
+]
 
 export default function HomeScreen({route, navigation}) {
-
-    const renderItem = ({ item }) => (
-        <Item item={item}/>
-    );
-
     return (
         <SafeAreaView style={styles.base}>
             <ScrollView>
-
-                {/* <Text style={styles.header}>KLBM ACCESS</Text> */}
 
                 {/* PROFILE */}
                 <TouchableOpacity 
@@ -66,7 +97,7 @@ export default function HomeScreen({route, navigation}) {
                     <View style={styles.profile_decs}>
                         <Text style={styles.profile_nama}>Alfian Cahy Surono</Text>
                         <Text style={styles.profile_text}>Mobile Costumer Service</Text>
-                        <Text style={styles.profile_text}>21 Desember 2021</Text>
+                        <Text style={styles.profile_text}>7 Desember 2021</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -103,25 +134,52 @@ export default function HomeScreen({route, navigation}) {
                     </View>
                 </View>
 
-                {/* CALENDAR */}
-                <TouchableOpacity 
-                    style={styles.calendar}
-                    onPress={() => {navigation.navigate('Calendar')}}
-                >
-                    <Text style={styles.headline_dark}>Calendar</Text>
+                {/* KALENDER */}
+                <View style={styles.calendar}>
+                    <Text style={styles.headline_dark}>Kalender</Text>
                     <Text style={styles.sub_headline_dark}>Desember 2021</Text>
-                    <View style={styles.shift_kanan}>
-                        <Text style={styles.shift_nomor}></Text>
-                    </View>
-                </TouchableOpacity>
+                    <FlatList
+                        data={DATA_SHIFT}
+                        keyExtractor={item_calendar => item_calendar.id}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        renderItem={({item})=> (
+                            <>
+                                <TouchableOpacity 
+                                    style={styles.item_calendar}
+                                    onPress={() => {navigation.navigate('Kalender')}}
+                                >
+                                    <View style={item.periode=="Off" ? styles.calendar_box_off : styles.calendar_box_on}>
+                                        <Text style={item.periode=="Off" ? styles.calendar_periode_off : styles.calendar_periode_on}>{item.periode}</Text>
+                                    </View>
+                                    <Text style={styles.item_calendar_tanggal}>{item.tanggal}</Text>
+                                </TouchableOpacity>
+                            </>
+                        )}
+                    />
+                    <Text style={styles.calendar_tanggal}>Tanggal</Text>
+                </View>
 
                 {/* TIMELINE */}
                 <View style={styles.timeline}>
                     <Text style={styles.headline_dark}>Timeline</Text>
                     <FlatList
                         data={DATA}
-                        renderItem={renderItem}
                         keyExtractor={item => item.id}
+                        renderItem={({item}) => (
+                            <>
+                                <View style={styles.item}>
+                                    <View style={styles.item_img_container}>
+                                        <Image style={styles.item_img} source={{uri: item.gambar}} />
+                                    </View>
+                                    <View style={styles.item_desc}>
+                                        <Text style={styles.item_headline}>{item.tipe}</Text>
+                                        <Text style={styles.item_sub_headline}>{item.objek}</Text>
+                                        <Text style={styles.item_sub_headline}>{item.lokasi}</Text>
+                                    </View>
+                                </View>
+                            </>
+                        )}
                     />
                 </View>
             </ScrollView>
@@ -138,7 +196,6 @@ const styles = StyleSheet.create({
     space: {
         height: 18,
     },
-
 
     header: {
         fontSize: 24,
@@ -212,14 +269,10 @@ const styles = StyleSheet.create({
 
     shift_kiri: {
         flexDirection: 'column',
-        // justifyContent: 'center',
-        // alignItems: 'flex-start',
     },
 
     shift_kanan: {
         flexDirection: 'column',
-        // justifyContent: 'flex-end',
-        // padding: 12
     },
 
     headline: {
@@ -377,8 +430,8 @@ const styles = StyleSheet.create({
     item_img_container: {
         height: 80,
         width: 80,
-        borderTopLeftRadius: 15,
-        borderBottomLeftRadius: 15,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
         overflow: "hidden",
         alignSelf:"center",
         marginRight: 12
@@ -426,5 +479,58 @@ const styles = StyleSheet.create({
         position: 'relative',
         top: -10,
         bottom: 0
+    },
+
+    item_calendar: {
+        width: 54,
+        alignItems: 'center',
+        marginTop: 10,
+        marginHorizontal: 4,
+        marginBottom: 6
+    },
+
+    calendar_box_on: {
+        backgroundColor: '#1F487E',
+        borderRadius: 100,
+        padding: 8,
+        alignItems: 'center',
+        justifyContent: "center",
+        width: 52,
+        height: 80,
+        marginBottom: 20,
+    },
+
+    calendar_box_off: {
+        backgroundColor: '#829cbc',
+        borderRadius: 100,
+        padding: 8,
+        alignItems: 'center',
+        justifyContent: "center",
+        width: 52,
+        height: 80,
+        marginBottom: 10,
+        marginTop: 10
+    },
+
+    calendar_periode_on: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+
+    calendar_periode_off: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+
+    item_calendar_tanggal: {
+        color: '#1F487E',
+    },
+
+    calendar_tanggal: {
+        textAlign: 'center',
+        fontSize: 14,
+        color:'#829CBC',
     }
 });
