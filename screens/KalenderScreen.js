@@ -4,6 +4,38 @@ import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, F
 import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function KalenderScreen({navigation}) {
+
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+
+    if (month == 1){
+        month = 'Januari';
+    }else if (month == 2){
+        month = 'Februari';
+    }else if (month == 3){
+        month = 'Maret';
+    }else if (month == 4){
+        month = 'April';
+    }else if (month == 5){
+        month = 'Mei';
+    }else if (month == 6){
+        month = 'Juni';
+    }else if (month == 11){
+        month = 'Juli';
+    }else if (month == 7){
+        month = 'Agustus';
+    }else if (month == 8){
+        month = 'September';
+    }else if (month == 9){
+        month = 'Oktober';
+    }else if (month == 10){
+        month = 'November';
+    }else{
+        month = 'Desember';
+    }
+    const tanggal = date + " " + month + ' ' + year;
+    
     return (
         <SafeAreaView style={styles.base}>
             <ScrollView>
@@ -16,7 +48,7 @@ export default function KalenderScreen({navigation}) {
                     <Text style={styles.sub_headline}>Waktu Shift</Text>
                     <Text style={styles.detail}>21.00 - 05.00</Text>
                     <Text style={styles.sub_headline}>Tanggal</Text>
-                    <Text style={styles.detail}>8 Desember 2021</Text>
+                    <Text style={styles.detail}>{tanggal}</Text>
                 </View>
         
                 <View style={styles.actionContainer}>

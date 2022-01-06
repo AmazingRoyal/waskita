@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, FlatList, ScrollView} from 'react-native'
+import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView} from 'react-native'
 
 import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -79,9 +78,81 @@ const DATA_SHIFT = [
         tanggal: '10',
         periode: 'Off',
     },
+    {
+        id: '11',
+        tanggal: '11',
+        periode: '1',
+    },
+    {
+        id: '12',
+        tanggal: '12',
+        periode: '2',
+    },
+    {
+        id: '13',
+        tanggal: '13',
+        periode: '3',
+    },
+    {
+        id: '14',
+        tanggal: '14',
+        periode: 'Off',
+    },
+    {
+        id: '15',
+        tanggal: '15',
+        periode: 'Off',
+    },
+    {
+        id: '16',
+        tanggal: '16',
+        periode: '1',
+    },
+    {
+        id: '17',
+        tanggal: '17',
+        periode: '2',
+    },
+    {
+        id: '18',
+        tanggal: '18',
+        periode: '3',
+    },
 ]
 
 export default function HomeScreen({route, navigation}) {
+
+    var date = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+
+    if (month == 1){
+        month = 'Januari';
+    }else if (month == 2){
+        month = 'Februari';
+    }else if (month == 3){
+        month = 'Maret';
+    }else if (month == 4){
+        month = 'April';
+    }else if (month == 5){
+        month = 'Mei';
+    }else if (month == 6){
+        month = 'Juni';
+    }else if (month == 11){
+        month = 'Juli';
+    }else if (month == 7){
+        month = 'Agustus';
+    }else if (month == 8){
+        month = 'September';
+    }else if (month == 9){
+        month = 'Oktober';
+    }else if (month == 10){
+        month = 'November';
+    }else{
+        month = 'Desember';
+    }
+    const tanggal = date + " " + month + ' ' + year;
+
     return (
         <SafeAreaView style={styles.base}>
             <ScrollView>
@@ -97,7 +168,7 @@ export default function HomeScreen({route, navigation}) {
                     <View style={styles.profile_decs}>
                         <Text style={styles.profile_nama}>Alfian Cahy Surono</Text>
                         <Text style={styles.profile_text}>Mobile Costumer Service</Text>
-                        <Text style={styles.profile_text}>7 Desember 2021</Text>
+                        <Text style={styles.profile_text}>{tanggal}</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -137,7 +208,7 @@ export default function HomeScreen({route, navigation}) {
                 {/* KALENDER */}
                 <View style={styles.calendar}>
                     <Text style={styles.headline_dark}>Kalender</Text>
-                    <Text style={styles.sub_headline_dark}>Desember 2021</Text>
+                    <Text style={styles.sub_headline_dark}>{month + ' ' + year}</Text>
                     <FlatList
                         data={DATA_SHIFT}
                         keyExtractor={item_calendar => item_calendar.id}
@@ -482,7 +553,7 @@ const styles = StyleSheet.create({
     },
 
     item_calendar: {
-        width: 54,
+        width: 48,
         alignItems: 'center',
         marginTop: 10,
         marginHorizontal: 4,
@@ -495,9 +566,9 @@ const styles = StyleSheet.create({
         padding: 8,
         alignItems: 'center',
         justifyContent: "center",
-        width: 52,
+        width: 48,
         height: 80,
-        marginBottom: 20,
+        marginBottom: 25,
     },
 
     calendar_box_off: {
@@ -506,10 +577,10 @@ const styles = StyleSheet.create({
         padding: 8,
         alignItems: 'center',
         justifyContent: "center",
-        width: 52,
+        width: 48,
         height: 80,
         marginBottom: 10,
-        marginTop: 10
+        marginTop: 15
     },
 
     calendar_periode_on: {

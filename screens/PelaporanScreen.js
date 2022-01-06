@@ -18,10 +18,10 @@ const DATA_KERUSAKAN = [
     },
     {
         id: '3',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
-        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
+        tipe: 'Kerusakan',
+        objek: 'Expansion Joint',
+        lokasi: 'KM 24.200 A',
+        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
     },
     {
         id: '4',
@@ -39,10 +39,10 @@ const DATA_KERUSAKAN = [
     },
     {
         id: '6',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
-        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
+        tipe: 'Kerusakan',
+        objek: 'Expansion Joint',
+        lokasi: 'KM 24.200 A',
+        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
     },
     {
         id: '7',
@@ -60,77 +60,42 @@ const DATA_KERUSAKAN = [
     },
     {
         id: '9',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
-        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
+        tipe: 'Kerusakan',
+        objek: 'Expansion Joint',
+        lokasi: 'KM 24.200 A',
+        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
     },
 ];
 
 const DATA_KECELAKAAN = [
     {
         id: '1',
-        tipe: 'Kecelakaan',
-        objek: 'Expansion Joint',
+        tipe: '3-3',
+        objek: 'Laka Tunggal',
         lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
     },
     {
         id: '2',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
+        tipe: '3-3 MD',
+        objek: 'Laka MD',
         lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
+        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
     },
     {
         id: '3',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
+        tipe: '3-3',
+        objek: 'Tabrak Belakang',
         lokasi: 'KM 14.500 B',
         gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
     },
     {
         id: '4',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
+        tipe: '3-3 MD',
+        objek: 'Laka MD',
         lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '5',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '6',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
         gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
-    },
-    {
-        id: '7',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '8',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '9',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
-        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
-    },
+    }
 ];
 
 export default function PelaporanScreen() {
@@ -199,6 +164,7 @@ const styles = StyleSheet.create({
 
     base: {
         paddingHorizontal: 12,
+        marginBottom: 64
     },
 
     headline_dark: {
