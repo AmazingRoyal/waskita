@@ -1,0 +1,110 @@
+[
+    {
+        "id": "1",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Penanganan Selesai/Diperbaiki",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "2",
+        "tipe": "Kerusakan",
+        "objek": "Canstein",
+        "lokasi": "Akses Belahan Rejo",
+        "gambar": "https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Canstein di akses masuk belahan rejo ambrol",
+        "status": "Belum Ditangani",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "3",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Belum Ditangani",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "4",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Penanganan Selesai/Diperbaiki",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "5",
+        "tipe": "Kerusakan",
+        "objek": "Canstein",
+        "lokasi": "Akses Belahan Rejo",
+        "gambar": "https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Canstein di akses masuk belahan rejo ambrol",
+        "status": "Penanganan Selesai/Diperbaiki",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "6",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Belum Ditangani",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "7",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Penanganan Selesai/Diperbaiki",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "8",
+        "tipe": "Kerusakan",
+        "objek": "Canstein",
+        "lokasi": "Akses Belahan Rejo",
+        "gambar": "https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Canstein di akses masuk belahan rejo ambrol",
+        "status": "Belum Ditangani",
+        "update": "24 Januari 2022"
+    },
+    {
+        "id": "9",
+        "tipe": "Kerusakan",
+        "objek": "Expansion Joint",
+        "lokasi": "KM 24.200 A",
+        "gambar": "https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg",
+        "tanggal": "22 Januari 2022",
+        "kondisi": "Rusak Ringan",
+        "rincian": "Berlubang sepanjang 2 meter",
+        "status": "Penanganan Selesai/Diperbaiki",
+        "update": "24 Januari 2022"
+    }
+]

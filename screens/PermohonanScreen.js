@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react'
-import {View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, FlatList, ScrollView} from 'react-native'
+import React from 'react'
+import {View, Text, TextInput, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView} from 'react-native'
 
-import { MaterialIcons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+const DATA_PROFIL = require('../metadata/akun.json')
 
 export default function PermohonanScreen({navigation}) {
-  return (
+    return (
         <SafeAreaView >
             <ScrollView>
                 <View style={styles.base}>
@@ -14,25 +16,25 @@ export default function PermohonanScreen({navigation}) {
                     <View style={styles.form}>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label}>NIK</Text>
-                            <TextInput style={styles.text_input}/>
+                            <Text style={styles.form_text}>{DATA_PROFIL[0].nik}</Text>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label}>Nama</Text>
-                            <Text style={styles.form_text}>Alfian Cahyo S.</Text>
+                            <Text style={styles.form_text}>{DATA_PROFIL[0].nama}</Text>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label}>Jabatan</Text>
-                            <Text style={styles.form_text}>Mobile Customer Service</Text>
+                            <Text style={styles.form_text}>{DATA_PROFIL[0].jabatan}</Text>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label_2}>Pada Hari</Text>
-                            <TextInput style={styles.text_input_2}/>
+                            <TextInput style={styles.text_input_2} placeholder='DD/MM/YYYY'/>
                             <Text style={styles.form_label_2}>Periode</Text>
                             <TextInput style={styles.text_input_3}/>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label_2}>Diganti Hari</Text>
-                            <TextInput style={styles.text_input_2}/>
+                            <TextInput style={styles.text_input_2} placeholder='DD/MM/YYYY'/>
                             <Text style={styles.form_label_2}>Periode</Text>
                             <TextInput style={styles.text_input_3}/>
                         </View>
@@ -49,21 +51,21 @@ export default function PermohonanScreen({navigation}) {
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label}>Nama</Text>
-                            <Text style={styles.form_text}>Alfian Cahyo S.</Text>
+                            <TextInput style={styles.text_input}/>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label}>Jabatan</Text>
-                            <Text style={styles.form_text}>Mobile Customer Service</Text>
+                            <TextInput style={styles.text_input}/>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label_2}>Pada Hari</Text>
-                            <TextInput style={styles.text_input_2}/>
+                            <TextInput style={styles.text_input_2} placeholder='DD/MM/YYYY'/>
                             <Text style={styles.form_label_2}>Periode</Text>
                             <TextInput style={styles.text_input_3}/>
                         </View>
                         <View style={styles.form_input}>
                             <Text style={styles.form_label_2}>Diganti Hari</Text>
-                            <TextInput style={styles.text_input_2}/>
+                            <TextInput style={styles.text_input_2} placeholder='DD/MM/YYYY'/>
                             <Text style={styles.form_label_2}>Periode</Text>
                             <TextInput style={styles.text_input_3}/>
                         </View>

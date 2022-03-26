@@ -1,126 +1,14 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, FlatList, ScrollView} from 'react-native'
 
-import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
 
-const DATA = [
-    {
-        id: '1',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '2',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '3',
-        tipe: 'Kecelakaan',
-        objek: '3-3',
-        lokasi: 'KM 14.500 B',
-        gambar: 'https://www.seva.id/wp-content/uploads/2021/11/shutterstock_519241105-1-1-e1636618519572.jpg'
-    },
-];
+const DATA = require('../metadata/pelaporan.json')
+const DATA_PROFIL = require('../metadata/akun.json')
+const DATA_SHIFT = require('../metadata/periode.json')
 
-const DATA_SHIFT = [
-    {
-        id: '1',
-        tanggal: '1',
-        periode: '1',
-    },
-    {
-        id: '2',
-        tanggal: '2',
-        periode: '2',
-    },
-    {
-        id: '3',
-        tanggal: '3',
-        periode: '3',
-    },
-    {
-        id: '4',
-        tanggal: '4',
-        periode: 'Off',
-    },
-    {
-        id: '5',
-        tanggal: '5',
-        periode: 'Off',
-    },
-    {
-        id: '6',
-        tanggal: '6',
-        periode: '1',
-    },
-    {
-        id: '7',
-        tanggal: '7',
-        periode: '2',
-    },
-    {
-        id: '8',
-        tanggal: '8',
-        periode: '3',
-    },
-    {
-        id: '9',
-        tanggal: '9',
-        periode: 'Off',
-    },
-    {
-        id: '10',
-        tanggal: '10',
-        periode: 'Off',
-    },
-    {
-        id: '11',
-        tanggal: '11',
-        periode: '1',
-    },
-    {
-        id: '12',
-        tanggal: '12',
-        periode: '2',
-    },
-    {
-        id: '13',
-        tanggal: '13',
-        periode: '3',
-    },
-    {
-        id: '14',
-        tanggal: '14',
-        periode: 'Off',
-    },
-    {
-        id: '15',
-        tanggal: '15',
-        periode: 'Off',
-    },
-    {
-        id: '16',
-        tanggal: '16',
-        periode: '1',
-    },
-    {
-        id: '17',
-        tanggal: '17',
-        periode: '2',
-    },
-    {
-        id: '18',
-        tanggal: '18',
-        periode: '3',
-    },
-]
-
-export default function HomeScreen({route, navigation}) {
+export default function HomeScreen({navigation}) {
 
     var date = new Date().getDate();
     var month = new Date().getMonth() + 1;
@@ -152,6 +40,40 @@ export default function HomeScreen({route, navigation}) {
         month = 'Desember';
     }
     const tanggal = date + " " + month + ' ' + year;
+    
+    const [curTime, setCurTime] = useState(getTime());
+    const [waktuAwal, setWaktuAwal] = useState('06:00');
+    const [waktuAkhir, setWaktuAkhir] = useState('14:00');
+    const [periode, setPeriode] = useState('');
+
+    function getTime() {
+        var hours = new Date().getHours();
+        var minutes = new Date().getMinutes();
+        
+        return (hours+":"+minutes);
+    }
+
+    function setShift(time) {
+        time = time.split(":")
+        if (time[0] >= 6 && time[0] < 14){
+            setPeriode('Periode 1');
+            setWaktuAwal('06:00')
+            setWaktuAkhir('14:00')
+        }else if (time[0] >= 14 && time[0] < 22){
+            setPeriode('Periode 2');
+            setWaktuAwal('14:00')
+            setWaktuAkhir('22:00')
+        }else {
+            setPeriode('Periode 3')
+            setWaktuAwal('22:00')
+            setWaktuAkhir('06:00')
+        }
+    }
+
+    useEffect( () => {
+        setCurTime(getTime())
+        setShift(curTime)
+    }, [])
 
     return (
         <SafeAreaView style={styles.base}>
@@ -163,11 +85,11 @@ export default function HomeScreen({route, navigation}) {
                     onPress={() => {navigation.navigate('Profil')}}
                 >
                     <View style={styles.profile_img_container}>
-                        <Image style={styles.profile_img} source={require('../img/profile.png')} />
+                    <Image style={styles.profile_img} source={require("../img/profile.png")} />
                     </View>
                     <View style={styles.profile_decs}>
-                        <Text style={styles.profile_nama}>Alfian Cahy Surono</Text>
-                        <Text style={styles.profile_text}>Mobile Costumer Service</Text>
+                        <Text style={styles.profile_nama}>{DATA_PROFIL[0].nama}</Text>
+                        <Text style={styles.profile_text}>{DATA_PROFIL[0].jabatan}</Text>
                         <Text style={styles.profile_text}>{tanggal}</Text>
                     </View>
                 </TouchableOpacity>
@@ -175,10 +97,10 @@ export default function HomeScreen({route, navigation}) {
                 {/* SHIFT */}
                 <View style={styles.shift}>
                     <View style={styles.shift_kiri}>
-                        <Text style={styles.headline}>Shift 2</Text>
+                        <Text style={styles.headline}>{periode}</Text>
                         <View style={styles.space}/>
-                        <Text style={styles.sub_headline}>Periode</Text>
-                        <Text style={styles.shift_jam}>14.00 - 21.00</Text>
+                        <Text style={styles.sub_headline}>Waktu</Text>
+                        <Text style={styles.shift_jam}>{waktuAwal} - {waktuAkhir}</Text>
                     </View>
                     <View style={styles.shift_kanan}>
                         <Text style={styles.shift_nomor}> 211</Text>
@@ -195,14 +117,19 @@ export default function HomeScreen({route, navigation}) {
                         <View style={styles.presensi_bar_front}></View>
                         <View style={styles.presensi_bar_back}></View>
                     </View>
-                    <View style={styles.maps}>
-                        <Text style={styles.sub_headline_dark}>
-                            <MaterialIcons name="location-on" size={14} color="#829CBC" /> Posisi
-                        </Text>
-                        <View style={styles.maps_img_container}>
-                            <Image style={styles.maps_img} source={require('../img/posisi.png')} />
-                        </View>
-                    </View>
+                    <TouchableOpacity 
+                        style={styles.maps}
+                        onPress={() => {navigation.navigate('Status')}}
+                    >
+                        {/* <View style={styles.maps}> */}
+                            <Text style={styles.sub_headline_dark}>
+                                <MaterialIcons name="location-on" size={14} color="#829CBC" /> Posisi
+                            </Text>
+                            <View style={styles.maps_img_container}>
+                                <Image style={styles.maps_img} source={require('../img/posisi.png')} />
+                            </View>
+                        {/* </View> */}
+                    </TouchableOpacity>
                 </View>
 
                 {/* KALENDER */}
@@ -218,7 +145,7 @@ export default function HomeScreen({route, navigation}) {
                             <>
                                 <TouchableOpacity 
                                     style={styles.item_calendar}
-                                    onPress={() => {navigation.navigate('Kalender')}}
+                                    onPress={() => {navigation.navigate('Kalender', {kalender_id: item.periode}) }}
                                 >
                                     <View style={item.periode=="Off" ? styles.calendar_box_off : styles.calendar_box_on}>
                                         <Text style={item.periode=="Off" ? styles.calendar_periode_off : styles.calendar_periode_on}>{item.periode}</Text>
@@ -239,7 +166,10 @@ export default function HomeScreen({route, navigation}) {
                         keyExtractor={item => item.id}
                         renderItem={({item}) => (
                             <>
-                                <View style={styles.item}>
+                                <TouchableOpacity 
+                                    style={styles.item}
+                                    onPress={() => {navigation.navigate('Pelaporan')}}
+                                >
                                     <View style={styles.item_img_container}>
                                         <Image style={styles.item_img} source={{uri: item.gambar}} />
                                     </View>
@@ -248,7 +178,7 @@ export default function HomeScreen({route, navigation}) {
                                         <Text style={styles.item_sub_headline}>{item.objek}</Text>
                                         <Text style={styles.item_sub_headline}>{item.lokasi}</Text>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             </>
                         )}
                     />
@@ -261,7 +191,7 @@ export default function HomeScreen({route, navigation}) {
 
 const styles = StyleSheet.create({
     base: {
-        // backgroundColor: '#1F487E',
+        paddingTop: 64
     },
 
     space: {

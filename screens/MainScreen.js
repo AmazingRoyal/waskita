@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -7,19 +7,35 @@ import { MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vecto
 
 import HomeScreen from './HomeScreen';
 import KalenderScreen from './KalenderScreen';
-import PelaporanScreen from './PelaporanScreen';
 import ProfilScreen from './ProfilScreen';
 import PermohonanScreen from './PermohonanScreen';
+import StatusScreen from './StatusScreen';
+
+import PelaporanScreen from './Pelaporan/PelaporanScreen';
+import LaporanBaruScreen from './Pelaporan/LaporanBaruScreen';
+import DetailKerusakanScreen from './Pelaporan/DetailKerusakanScreen';
+import LaporanHarianScreen from './Pelaporan/LaporanHarianScreen';
+import ListFormScreen from './Pelaporan/ListFormScreen';
+import ListFormRescueScreen from './Pelaporan/ListFormRescueScreen';
+import ListFormAmbulanceScreen from './Pelaporan/ListFormAmbulanceScreen';
+import ListFormTICScreen from './Pelaporan/ListFormTICScreen';
+import ListFormMCSScreen from './Pelaporan/ListFormMCSScreen';
+import ListFormCSScreen from './Pelaporan/ListFormCSScreen';
+import FormKecelakaanScreen from './Pelaporan/Form/FormKecelakaanScreen';
+import FormKerusakanScreen from './Pelaporan/Form/FormKerusakanScreen';
+import FormSTTRescueScreen from './Pelaporan/Form/FormSTTRescueScreen';
+import FormLaporanHarianScreen from './Pelaporan/Form/FormLaporanHarianScreen';
 
 const KalenderStack = createNativeStackNavigator();
 const PelaporanStack = createNativeStackNavigator();
+
 const Tab = createBottomTabNavigator();
 
 function KalenderStackScreen() {
     return (
         <KalenderStack.Navigator>
             <KalenderStack.Screen 
-                name="Kalender" 
+                name="Shift" 
                 component={KalenderScreen} 
                 options={{
                     headerStyle: {
@@ -46,6 +62,35 @@ function KalenderStackScreen() {
                     
                 }}
             />
+
+            <KalenderStack.Screen 
+                name="Status" 
+                component={StatusScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+            <KalenderStack.Screen 
+                name="LaporanHarian" 
+                component={LaporanHarianScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
         </KalenderStack.Navigator>
     )
 }
@@ -54,8 +99,185 @@ function PelaporanStackScreen() {
     return (
         <PelaporanStack.Navigator>
             <PelaporanStack.Screen 
-                name="Pelaporan" 
+                name="Laporan" 
                 component={PelaporanScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="List Form" 
+                component={ListFormScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="List Form Rescue" 
+                component={ListFormRescueScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="List Form Ambulance" 
+                component={ListFormAmbulanceScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+            <PelaporanStack.Screen 
+                name="List Form TIC" 
+                component={ListFormTICScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+            <PelaporanStack.Screen 
+                name="List Form MCS" 
+                component={ListFormMCSScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+            <PelaporanStack.Screen 
+                name="List Form CS" 
+                component={ListFormCSScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Laporan Baru" 
+                component={LaporanBaruScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Form Kecelakaan" 
+                component={FormKecelakaanScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Form Kerusakan" 
+                component={FormKerusakanScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Form STT Rescue" 
+                component={FormSTTRescueScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Detail Kerusakan" 
+                component={DetailKerusakanScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Form Laporan Harian" 
+                component={FormLaporanHarianScreen} 
                 options={{
                     headerStyle: {
                         backgroundColor: '#1F487E',
@@ -76,11 +298,11 @@ export default function App() {
         <>
             {/* <NavigationContainer> */}
                 <Tab.Navigator
-                    tabBarOptions={{activeTintColor: '#1F487E'}}
                     labelStyle={{ fontSize: 12 }}
                     barStyle={{ backgroundColor: '#829CBC', borderRadius:50 }}
                     screenOptions={{
-                        headerShown: false
+                        headerShown: false,
+                        tabBarActiveTintColor: "#1F487E",
                     }}
                 >
                     <Tab.Screen 
@@ -89,7 +311,7 @@ export default function App() {
                         options={{
                             tabBarLabel: "Dashboard",
                             tabBarIcon: ({color}) => ( 
-                                <MaterialIcons name="dashboard" size={24} color={color} />
+                                <MaterialCommunityIcons name="check-all" size={24} color={color} />
                             )
                         }}
                     />

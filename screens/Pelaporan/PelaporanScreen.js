@@ -1,71 +1,76 @@
 import React, {useEffect, useState} from 'react'
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, FlatList, ScrollView} from 'react-native'
 
-const DATA_KERUSAKAN = [
-    {
-        id: '1',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '2',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '3',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '4',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '5',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '6',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '7',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-    {
-        id: '8',
-        tipe: 'Kerusakan',
-        objek: 'Canstein',
-        lokasi: 'Akses Belahan Rejo',
-        gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
-    },
-    {
-        id: '9',
-        tipe: 'Kerusakan',
-        objek: 'Expansion Joint',
-        lokasi: 'KM 24.200 A',
-        gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
-    },
-];
+import { MaterialIcons } from '@expo/vector-icons';
+
+
+const DATA_KERUSAKAN = require('../../metadata/kerusakan.json')
+
+// const DATA_KERUSAKAN = [
+//     {
+//         id: '1',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+//     {
+//         id: '2',
+//         tipe: 'Kerusakan',
+//         objek: 'Canstein',
+//         lokasi: 'Akses Belahan Rejo',
+//         gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
+//     },
+//     {
+//         id: '3',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+//     {
+//         id: '4',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+//     {
+//         id: '5',
+//         tipe: 'Kerusakan',
+//         objek: 'Canstein',
+//         lokasi: 'Akses Belahan Rejo',
+//         gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
+//     },
+//     {
+//         id: '6',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+//     {
+//         id: '7',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+//     {
+//         id: '8',
+//         tipe: 'Kerusakan',
+//         objek: 'Canstein',
+//         lokasi: 'Akses Belahan Rejo',
+//         gambar: 'https://dpu.kulonprogokab.go.id/files/news/normal/RUSAK_LUBANG.jpg'
+//     },
+//     {
+//         id: '9',
+//         tipe: 'Kerusakan',
+//         objek: 'Expansion Joint',
+//         lokasi: 'KM 24.200 A',
+//         gambar: 'https://ernimulyandari.files.wordpress.com/2011/05/img01319-20100322-1646.jpg'
+//     },
+// ];
 
 const DATA_KECELAKAAN = [
     {
@@ -98,16 +103,16 @@ const DATA_KECELAKAAN = [
     }
 ];
 
-export default function PelaporanScreen() {
+export default function PelaporanScreen({navigation}) {
     const [dataList, setDataList] = useState([]);
     const [menuActive, setMenuActive] = useState("kerusakan");
     
     useEffect(() => {
         menuActive == 'kerusakan' ? setDataList(DATA_KERUSAKAN) : setDataList(DATA_KECELAKAAN)
-    })
+    }, [menuActive])
 
     return (
-        <SafeAreaView >
+        <SafeAreaView style={styles.base}>
             <View style={styles.menu}>
                 <TouchableOpacity 
                     style={menuActive == 'kerusakan' ? styles.menu_item_dark : styles.menu_item} 
@@ -136,13 +141,23 @@ export default function PelaporanScreen() {
                 </TouchableOpacity>
             </View>
 
-            <ScrollView style={styles.base}>
+            <TouchableOpacity 
+                style={styles.button_laporan}
+                onPress={() => {navigation.navigate('List Form')}}
+            >
+                <MaterialIcons name="add" size={32} color='white' />
+            </TouchableOpacity>
+
+            <ScrollView >
                 <FlatList
                     data={dataList}
                     keyExtractor={item => item.id}
                     renderItem={({item}) => (
                         <>
-                            <View style={styles.item}>
+                            <TouchableOpacity 
+                                style={styles.item}
+                                onPress={() => {navigation.navigate('Detail Kerusakan', {link: item.id-1})}}
+                            >
                                 <View style={styles.item_img_container}>
                                     <Image style={styles.item_img} source={{uri: item.gambar}} />
                                 </View>
@@ -151,7 +166,7 @@ export default function PelaporanScreen() {
                                     <Text style={styles.item_sub_headline}>{item.objek}</Text>
                                     <Text style={styles.item_sub_headline}>{item.lokasi}</Text>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </>
                     )}
                 />
@@ -161,8 +176,12 @@ export default function PelaporanScreen() {
 }
 
 const styles = StyleSheet.create({
-
     base: {
+        flex: 1,
+        paddingHorizontal: 12,
+    },
+
+    base_list: {
         paddingHorizontal: 12,
         marginBottom: 64
     },
@@ -240,5 +259,19 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         borderWidth: 2,
         borderColor: "#1F487E",
+    },
+
+    button_laporan: {
+        backgroundColor: '#376996',
+        position: 'absolute',
+        bottom: 24,
+        right: 24,
+        zIndex: 3,
+        elevation: 3,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        borderBottomRightRadius: 50,
+        borderBottomLeftRadius: 16,
+        padding: 12
     }
 });

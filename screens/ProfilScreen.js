@@ -1,31 +1,34 @@
-import React, {useEffect, useState} from 'react'
-import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Button, Image, FlatList, ScrollView} from 'react-native'
+import React from 'react'
+import {View, Text, SafeAreaView, StyleSheet, Image} from 'react-native'
 
 export default function ProfilScreen() {
-  return (
-    <SafeAreaView style={styles.base}>
-        <View style={styles.header}>
-            <Image style={styles.logo} source={require('../img/logo.png')} />
-            <View>
-                <Text style={styles.headline}>KLBM ACCESS</Text>
-                <Text style={styles.sub_headline}>Internal Application Procedure</Text>
+
+    const DATA_PROFIL = require('../metadata/akun.json')
+
+    return (
+        <SafeAreaView style={styles.base}>
+            <View style={styles.header}>
+                <Image style={styles.logo} source={require('../img/logo.png')} />
+                <View>
+                    <Text style={styles.headline}>KLBM ACCESS</Text>
+                    <Text style={styles.sub_headline}>Internal Application Procedure</Text>
+                </View>
             </View>
-        </View>
-        <View style={styles.box}>
-            <View style={styles.profile_decs}>
-                <Text style={styles.profile_nik}>201555</Text>
-                <Text style={styles.profile_nama}>Alfian Cahy Surono</Text>
-                <Text style={styles.profile_text}>Mobile Costumer Service</Text>
-                <Text style={styles.profile_contract}>Contract till</Text>
-                <Text style={styles.profile_contract_text}>11 - 2020</Text>
+            <View style={styles.box}>
+                <View style={styles.profile_decs}>
+                    <Text style={styles.profile_nik}>{DATA_PROFIL[0].nik}</Text>
+                    <Text style={styles.profile_nama}>{DATA_PROFIL[0].nama}</Text>
+                    <Text style={styles.profile_text}>{DATA_PROFIL[0].jabatan}</Text>
+                    <Text style={styles.profile_contract}>Contract till</Text>
+                    <Text style={styles.profile_contract_text}>{DATA_PROFIL[0].contract}</Text>
+                </View>
+                <View style={styles.profile_img_container}>
+                    <Image style={styles.profile_img} source={require('../img/profile.png')} />
+                    <Text style={styles.img_text}>JMTO</Text>
+                </View>
             </View>
-            <View style={styles.profile_img_container}>
-                <Image style={styles.profile_img} source={require('../img/profile.png')} />
-                <Text style={styles.img_text}>JMTO</Text>
-            </View>
-        </View>
-    </SafeAreaView>
-  );
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -37,11 +40,11 @@ const styles = StyleSheet.create({
 
     header: {
         flexDirection: 'row',
-        padding: 18,
+        paddingTop: 64,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 18
+        marginBottom: 18,
     },
 
     logo: {

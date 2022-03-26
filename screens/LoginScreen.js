@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, TextInput} from 'react-native'
 
-import { MaterialIcons, FontAwesome5, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
-
-export default function LoginScreen({route, navigation}) {
+export default function LoginScreen({navigation}) {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
     function check() {
+        // navigation.navigate('Main');
         if (username == "admin" && password == 'admin'){
             setMessage("")
             navigation.navigate('Main');
@@ -59,6 +58,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         margin: 12,
+        paddingTop: 64
     },
 
     logo: {
