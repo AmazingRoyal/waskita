@@ -25,6 +25,7 @@ import FormKecelakaanScreen from './Pelaporan/Form/FormKecelakaanScreen';
 import FormKerusakanScreen from './Pelaporan/Form/FormKerusakanScreen';
 import FormSTTRescueScreen from './Pelaporan/Form/FormSTTRescueScreen';
 import FormLaporanHarianScreen from './Pelaporan/Form/FormLaporanHarianScreen';
+import FormSTTCSScreen from './Pelaporan/Form/FormSTTCSScreen';
 
 const KalenderStack = createNativeStackNavigator();
 const PelaporanStack = createNativeStackNavigator();
@@ -278,6 +279,21 @@ function PelaporanStackScreen() {
             <PelaporanStack.Screen 
                 name="Form Laporan Harian" 
                 component={FormLaporanHarianScreen} 
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#1F487E',
+                    },
+                    headerTintColor: 'white',
+                    headerTitleStyle: {
+                        color: 'white',
+                    },
+                    
+                }}
+            />
+
+            <PelaporanStack.Screen 
+                name="Form STT CS" 
+                component={FormSTTCSScreen} 
                 options={{
                     headerStyle: {
                         backgroundColor: '#1F487E',

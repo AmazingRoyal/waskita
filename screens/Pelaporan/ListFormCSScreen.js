@@ -8,7 +8,7 @@ export default function ListFormCSScreen({navigation}) {
 
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => {navigation.navigate('Form STT Rescue')}}
+                    onPress={() => {navigation.navigate('Form STT CS')}}
                 >
                     <Text style={styles.button_text}>Laporan Serah Terima Sarana Kerja dan LatTol</Text>
                 </TouchableOpacity>

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, TextInput, Switch, ScrollView} from 'react-native'
-import {Picker} from '@react-native-picker/picker';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
